@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>TYR  Spring Security Example </title>
+</head>
+<body>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div>
+        <label><input type="checkbox" name="remember-me"/>自动登录</label>
+        <input type="submit" value="Sign In"/>
+    </div>
+</form>
+
+<h3>短信验证码</h3>
+<form th:action="@{/auth/sms}" method="post">
+    <table>
+        <tr>
+            <td>手机号：</td>
+            <td><input type="text" name="mobile"></td>
+        </tr>
+        <tr>
+            <td>短信验证码：</td>
+            <td>
+                <input type="text" name="smsCode">
+                <a href="/code/sms?mobile=18735878888">发送验证码</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit">登录</input>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h3>邮箱验证码</h3>
+<form th:action="@{/auth/mail}" method="post">
+    <table>
+        <tr>
+            <td>邮箱：</td>
+            <td><input type="text" name="mail"></td>
+        </tr>
+        <tr>
+            <td>邮箱验证码：</td>
+            <td>
+                <input type="text" name="mailCode">
+                <a href="/code/mail">发送验证码</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit">登录</input>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

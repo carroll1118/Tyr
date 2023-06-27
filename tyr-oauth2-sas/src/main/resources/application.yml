@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: uaa
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/sas?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    hikari:
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 60
+      minimum-idle: 10
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      auto-commit: true
+
+
+gitee:
+  clientId: e3ef0ce3a02e3f92764269e521bcf50e46b9a87db3ec045f2913628b07ade24d
+  clientSecret: c90908e3eafc8ebc4cf7bc08fa305e007c0f412e488a6264cd61deb5ecea9f08
+  redirectUri: http://127.0.0.1:8080/gitee/authorized
+baidu:
+  clientId: e3ef0ce3a02e3f92764269e521bcf50e46b9a87db3ec045f2913628b07ade24d
+  clientSecret: c90908e3eafc8ebc4cf7bc08fa305e007c0f412e488a6264cd61deb5ecea9f08
+  redirectUri: http://127.0.0.1:8080/baidu/authorized
+wechat:
+  clientId: e3ef0ce3a02e3f92764269e521bcf50e46b9a87db3ec045f2913628b07ade24d
+  clientSecret: c90908e3eafc8ebc4cf7bc08fa305e007c0f412e488a6264cd61deb5ecea9f08
+  redirectUri: http://127.0.0.1:8080/wechat/authorized

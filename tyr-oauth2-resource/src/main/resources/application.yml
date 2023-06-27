@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: resource
+  # 指定要使用的授权服务器
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:8080
+          jwk-set-uri: http://127.0.0.1:8080//jwks.json  #配置RSA的公钥访问地
